@@ -10,6 +10,8 @@ import mohamed.lak.bookmanagementsystem.entities.Book;
 import mohamed.lak.bookmanagementsystem.entities.userProfile;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Getter
@@ -20,7 +22,7 @@ import java.io.Serializable;
 public class user implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_user;
     @Column(unique=true, nullable=false)
     private String username;
     @Column(nullable=false)
@@ -31,8 +33,8 @@ public class user implements Serializable {
     @OneToOne(mappedBy = "user", cascade=CascadeType.ALL)
     private userProfile profile;
 
-    public String ToString(){
-        return "User: " + "Id: " + id + " Name: " + username + " Role: " + Role;
-    }
 
+    public String ToString(){
+        return "User: " + "Id: " + id_user + " Name: " + username + " Role: " + Role;
+    }
 }

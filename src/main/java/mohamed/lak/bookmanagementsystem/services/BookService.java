@@ -71,11 +71,6 @@ public class BookService {
             }
         }
 
-
-
-
-
-
         return BooksToReturn;
     }
 

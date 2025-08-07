@@ -1,6 +1,6 @@
 package mohamed.lak.bookmanagementsystem;
 
-import mohamed.lak.bookmanagementsystem.security.AccountService;
+//import mohamed.lak.bookmanagementsystem.security.AccountService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,17 +16,12 @@ public class BookManagementSystemApplication {
 	}
 
 
-	@Bean
-	CommandLineRunner CommandLineRunnerUserDetails(AccountService accountService) {
-		return args -> {
-			accountService.addUser("ADMIN","ADMIN", "ADMIN");
-		};
-	}
 
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+
+//	@Bean
+//	PasswordEncoder passwordEncoder() {
+//		return new BCryptPasswordEncoder();
+//	}
 
 
 }

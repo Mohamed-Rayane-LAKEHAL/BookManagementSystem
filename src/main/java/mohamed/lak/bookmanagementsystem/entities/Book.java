@@ -37,7 +37,7 @@ public class Book implements Serializable {
 
     @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.EAGER)
     @JsonBackReference
-    private List<user> users = new ArrayList<>();
+    private List<userProfile> users = new ArrayList<>();
 
     public String ToString(){
         return "Book: "+ " Id: " + id + " title: "+ title + " ISBN: " + ISBN + " pubYear: " + pubYear;
