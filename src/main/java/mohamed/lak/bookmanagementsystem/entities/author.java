@@ -1,0 +1,40 @@
+package mohamed.lak.bookmanagementsystem.entities;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class author implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String name;
+    @Column(length = 100)
+    private String Bibliography;
+    private String Nationality;
+
+    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
+    @JsonManagedReference // indicates that the annotated property (book) should be included in the JSON output during serialization.
+    private List<Book> book = new ArrayList<>() ;
+
+    public String ToString() {
+        return "id " + id + "name "+ name+ "Bibliography "+ Bibliography + "Nationality " + Nationality;
+    }
+
+
+
+
+}
