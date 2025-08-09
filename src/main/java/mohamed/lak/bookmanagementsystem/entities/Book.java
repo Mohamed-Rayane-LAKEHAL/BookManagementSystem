@@ -1,6 +1,5 @@
 package mohamed.lak.bookmanagementsystem.entities;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -28,15 +27,14 @@ public class Book implements Serializable {
     private LocalDate pubYear;
 
     @ManyToOne
-    @JsonBackReference //indicates that the annotated property (author) should be ignored during serialization to break the cycle
+    @JsonBackReference(value = "bookAuthor") //indicates that the annotated property (author) should be ignored during serialization to break the cycle
     private author author;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @ManyToMany
     private List<category> categories = new ArrayList<>();
 
     @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.EAGER)
-    @JsonBackReference
+    @JsonIgnore
     private List<userProfile> users = new ArrayList<>();
 
     public String ToString(){

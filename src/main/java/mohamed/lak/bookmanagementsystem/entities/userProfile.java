@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mohamed.lak.bookmanagementsystem.security.user;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -29,8 +31,7 @@ public class userProfile {
     @JoinTable(name = "user_book",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
-    @JsonManagedReference
-    private Set<Book> borrowedBooks = new HashSet<>();
+    private List<Book> borrowedBooks = new ArrayList<>();
 
     @OneToOne
     @MapsId

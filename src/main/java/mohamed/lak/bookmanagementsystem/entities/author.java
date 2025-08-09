@@ -27,7 +27,7 @@ public class author implements Serializable {
     private String Nationality;
 
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
-    @JsonManagedReference // indicates that the annotated property (book) should be included in the JSON output during serialization.
+    @JsonManagedReference(value = "bookAuthor") // indicates that the annotated property (book) should be included in the JSON output during serialization.
     private List<Book> book = new ArrayList<>() ;
 
     public String ToString() {
