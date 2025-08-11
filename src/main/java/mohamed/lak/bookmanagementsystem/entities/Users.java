@@ -1,18 +1,12 @@
-package mohamed.lak.bookmanagementsystem.security;
+package mohamed.lak.bookmanagementsystem.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mohamed.lak.bookmanagementsystem.entities.Book;
-import mohamed.lak.bookmanagementsystem.entities.UserProfile;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 
 @Getter

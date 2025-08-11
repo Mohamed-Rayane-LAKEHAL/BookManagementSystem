@@ -1,5 +1,6 @@
-package mohamed.lak.bookmanagementsystem.security;
+package mohamed.lak.bookmanagementsystem.repositories;
 
+import mohamed.lak.bookmanagementsystem.entities.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,5 +1,7 @@
 package mohamed.lak.bookmanagementsystem.security;
 
+import mohamed.lak.bookmanagementsystem.entities.Users;
+import mohamed.lak.bookmanagementsystem.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

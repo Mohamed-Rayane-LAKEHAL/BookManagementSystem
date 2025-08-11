@@ -1,7 +1,6 @@
 package mohamed.lak.bookmanagementsystem.controllers;
-import mohamed.lak.bookmanagementsystem.entities.Book;
 import mohamed.lak.bookmanagementsystem.services.UserService;
-import mohamed.lak.bookmanagementsystem.security.Users;
+import mohamed.lak.bookmanagementsystem.entities.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

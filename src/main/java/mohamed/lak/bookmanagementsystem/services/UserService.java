@@ -1,6 +1,6 @@
 package mohamed.lak.bookmanagementsystem.services;
-import mohamed.lak.bookmanagementsystem.security.UserRepo;
-import mohamed.lak.bookmanagementsystem.security.Users;
+import mohamed.lak.bookmanagementsystem.repositories.UserRepo;
+import mohamed.lak.bookmanagementsystem.entities.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
