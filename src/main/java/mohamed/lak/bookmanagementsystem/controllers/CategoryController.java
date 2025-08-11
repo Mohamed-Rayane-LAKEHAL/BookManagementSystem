@@ -1,7 +1,7 @@
 package mohamed.lak.bookmanagementsystem.controllers;
 
 import mohamed.lak.bookmanagementsystem.entities.Book;
-import mohamed.lak.bookmanagementsystem.entities.category;
+import mohamed.lak.bookmanagementsystem.entities.Category;
 import mohamed.lak.bookmanagementsystem.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,16 +17,16 @@ public class CategoryController {
     CategoryService categoryService;
 
     @GetMapping("/categories")
-    public List<category> GetAllCategories() {
-        return categoryService.RetrieveAllCategories();
+    public List<Category> getAllCategories() {
+        return categoryService.retrieveAllCategories();
     }
     @PostMapping("/addCategory")
-    public void AddCategory(@RequestBody category category) {
-        categoryService.AddCategory(category);
+    public void addCategory(@RequestBody Category category) {
+        categoryService.addCategory(category);
     }
     @PostMapping("/addCategories")
-    public void AddCategories(@RequestBody List<category> categories) {
-        categories.forEach(category -> categoryService.AddCategory(category));
+    public void addCategories(@RequestBody List<Category> categories) {
+        categories.forEach(category -> categoryService.addCategory(category));
     }
 
 

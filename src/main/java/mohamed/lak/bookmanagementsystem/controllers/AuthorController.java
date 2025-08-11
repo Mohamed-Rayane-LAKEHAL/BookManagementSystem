@@ -1,6 +1,6 @@
 package mohamed.lak.bookmanagementsystem.controllers;
 
-import mohamed.lak.bookmanagementsystem.entities.author;
+import mohamed.lak.bookmanagementsystem.entities.Author;
 import mohamed.lak.bookmanagementsystem.services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +16,11 @@ public class AuthorController {
     AuthorService authorService;
 
     @PostMapping("/addAuthor")
-    public void AddAuthor(@RequestBody author author) {
+    public void addAuthor(@RequestBody Author author) {
         authorService.addAuthor(author);
     }
     @GetMapping("/authors")
-    public List<author> RetrieveAuthors() {
+    public List<Author> retrieveAuthors() {
         return authorService.getAllAuthors();
     }
 

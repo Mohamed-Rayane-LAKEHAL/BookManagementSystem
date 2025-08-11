@@ -1,21 +1,21 @@
 package mohamed.lak.bookmanagementsystem.controllers;
 import mohamed.lak.bookmanagementsystem.entities.Book;
 import mohamed.lak.bookmanagementsystem.services.UserService;
-import mohamed.lak.bookmanagementsystem.security.user;
+import mohamed.lak.bookmanagementsystem.security.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserControler {
+public class UserController {
 
     @Autowired
     private UserService userService;
 
     @PostMapping("/addNewUser")
-    public void Register(@RequestBody user user){
-        userService.Register(user);
+    public void register(@RequestBody Users user){
+        userService.register(user);
     }
 
 

@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class author implements Serializable {
+public class Author implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +28,10 @@ public class author implements Serializable {
 
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
     @JsonManagedReference(value = "bookAuthor") // indicates that the annotated property (book) should be included in the JSON output during serialization.
-    private List<Book> book = new ArrayList<>() ;
+    private List<Book> books = new ArrayList<>() ;
 
-    public String ToString() {
+    @Override
+    public String toString() {
         return "id " + id + "name "+ name+ "Bibliography "+ Bibliography + "Nationality " + Nationality;
     }
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lombok.*;
-import mohamed.lak.bookmanagementsystem.security.user;
+import mohamed.lak.bookmanagementsystem.security.Users;
 
 
 @Getter
@@ -28,16 +28,17 @@ public class Book implements Serializable {
 
     @ManyToOne
     @JsonBackReference(value = "bookAuthor") //indicates that the annotated property (author) should be ignored during serialization to break the cycle
-    private author author;
+    private Author author;
 
     @ManyToMany
-    private List<category> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
 
     @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.EAGER)
     @JsonIgnore
-    private List<userProfile> users = new ArrayList<>();
+    private List<UserProfile> profiles = new ArrayList<>();
 
-    public String ToString(){
+    @Override
+    public String toString(){
         return "Book: "+ " Id: " + id + " title: "+ title + " ISBN: " + ISBN + " pubYear: " + pubYear;
     }
 

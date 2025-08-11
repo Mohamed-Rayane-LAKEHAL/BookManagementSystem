@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class category implements Serializable {
+public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -27,7 +27,8 @@ public class category implements Serializable {
     @JsonIgnore
     private List<Book> books = new ArrayList<>();
 
-    public String ToString(){
+    @Override
+    public String toString(){
         return "Category: "+ " Id: " + id + " name: "+ name ;
     }
 

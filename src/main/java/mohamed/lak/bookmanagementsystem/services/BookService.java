@@ -1,8 +1,8 @@
 package mohamed.lak.bookmanagementsystem.services;
 
 import mohamed.lak.bookmanagementsystem.entities.Book;
-import mohamed.lak.bookmanagementsystem.entities.author;
-import mohamed.lak.bookmanagementsystem.entities.category;
+import mohamed.lak.bookmanagementsystem.entities.Author;
+import mohamed.lak.bookmanagementsystem.entities.Category;
 import mohamed.lak.bookmanagementsystem.repositories.BookRepo;
 import mohamed.lak.bookmanagementsystem.repositories.CategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,16 +22,16 @@ public class BookService {
     @Autowired
     private CategoryRepo categoryRepo;
     
-    public void AddBook(Book book){
+    public void addBook(Book book){
         bookRepo.save(book);
     }
-    public List<Book> RetrieveAllBooks(){
+    public List<Book> retrieveAllBooks(){
         return bookRepo.findAll();
     }
-    public void DeleteBook(Integer id){
+    public void deleteBook(Integer id){
         bookRepo.deleteById(id);
     }
-    public void Updatebook(Book book){
+    public void updateBook(Book book){
      Integer id = book.getId();
      Book Book = bookRepo.findAll().stream().filter(b -> b.getId().equals(id)).findFirst().orElseThrow();
      Book.setAuthor(book.getAuthor());
@@ -41,16 +41,16 @@ public class BookService {
      Book.setPubYear(book.getPubYear());
      bookRepo.save(Book);
     }
-    public Book RetrieveBookByTitle(String title){
+    public Book retrieveBookByTitle(String title){
         return bookRepo.findAll().stream().filter(b -> b.getTitle().equals(title)).findFirst().orElseThrow();
     }
     public Page<Book> findAll(Pageable pageable) {
         return bookRepo.findAll(pageable);
     }
-    public void AddCategoryToBook(Integer id_book, Integer id_category){
+    public void addCategoryToBook(Integer id_book, Integer id_category){
         Book book = bookRepo.findAll().stream().filter(b -> b.getId().equals(id_book)).findFirst().orElseThrow();
-        category category = categoryRepo.findAll().stream().filter(c -> c.getId().equals(id_category)).findFirst().orElseThrow();
-        List<category> categories = book.getCategories();
+        Category category = categoryRepo.findAll().stream().filter(c -> c.getId().equals(id_category)).findFirst().orElseThrow();
+        List<Category> categories = book.getCategories();
         Boolean b = categories.add(category);
         book.setCategories(categories);
         List<Book> books = category.getBooks();
@@ -60,11 +60,11 @@ public class BookService {
         bookRepo.save(book);
     }
 
-    public List<Book> GetBooksByCategory(String CategoryName){
+    public List<Book> getBooksByCategory(String CategoryName){
         List<Book> BooksToReturn = new ArrayList<>();
         List<Book> books = bookRepo.findAll();
         for (Book book : books) {
-            for(category cat : book.getCategories()){
+            for(Category cat : book.getCategories()){
                 if (cat.getName().equals(CategoryName)){
                     BooksToReturn.add(book);
                 }

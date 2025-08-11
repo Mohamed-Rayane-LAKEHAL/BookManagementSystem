@@ -18,10 +18,6 @@ public class BookManagementSystemApplication {
 
 
 
-//	@Bean
-//	PasswordEncoder passwordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
 
 
 }

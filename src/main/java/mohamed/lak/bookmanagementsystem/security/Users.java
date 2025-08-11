@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mohamed.lak.bookmanagementsystem.entities.Book;
-import mohamed.lak.bookmanagementsystem.entities.userProfile;
+import mohamed.lak.bookmanagementsystem.entities.UserProfile;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -20,7 +20,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class user implements Serializable {
+public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_user;
@@ -32,10 +32,10 @@ public class user implements Serializable {
     private String Role;
 
     @OneToOne(mappedBy = "user", cascade=CascadeType.ALL)
-    private userProfile profile;
+    private UserProfile profile;
 
-
-    public String ToString(){
+    @Override
+    public String toString(){
         return "User: " + "Id: " + id_user + " Name: " + username + " Role: " + Role;
     }
 }
