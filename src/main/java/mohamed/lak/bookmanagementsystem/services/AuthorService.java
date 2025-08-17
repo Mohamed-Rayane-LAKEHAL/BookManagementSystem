@@ -9,8 +9,12 @@ import java.util.List;
 
 @Service
 public class AuthorService {
-    @Autowired
+    //@Autowired
     AuthorRepo authorRepo;
+
+    public AuthorService(AuthorRepo authorRepo) {
+        this.authorRepo = authorRepo;
+    }
 
     public void addAuthor(Author author) {
         authorRepo.save(author);

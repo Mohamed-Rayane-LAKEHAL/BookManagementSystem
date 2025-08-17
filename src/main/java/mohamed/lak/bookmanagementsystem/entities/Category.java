@@ -18,6 +18,9 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 public class Category implements Serializable {
+    public Category(String name){
+        this.name = name;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

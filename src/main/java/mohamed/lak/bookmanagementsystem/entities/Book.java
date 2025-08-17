@@ -33,8 +33,8 @@ public class Book implements Serializable {
     private List<Category> categories = new ArrayList<>();
 
     @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.EAGER)
-    @JsonIgnore
-    private List<UserProfile> profiles = new ArrayList<>();
+    //@JsonIgnore
+    private List<Users> profiles = new ArrayList<>();
 
     @Override
     public String toString(){

@@ -32,7 +32,7 @@ public class Author implements Serializable {
 
     @Override
     public String toString() {
-        return "id " + id + "name "+ name+ "Bibliography "+ Bibliography + "Nationality " + Nationality;
+        return "id " + id + " name "+ name+ " Bibliography "+ Bibliography + " Nationality " + Nationality;
     }
 
 
