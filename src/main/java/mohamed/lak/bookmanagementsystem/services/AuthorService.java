@@ -16,8 +16,8 @@ public class AuthorService {
         this.authorRepo = authorRepo;
     }
 
-    public void addAuthor(Author author) {
-        authorRepo.save(author);
+    public Author addAuthor(Author author) {
+        return authorRepo.save(author);
     }
     public List<Author> getAllAuthors() {
         return authorRepo.findAll();

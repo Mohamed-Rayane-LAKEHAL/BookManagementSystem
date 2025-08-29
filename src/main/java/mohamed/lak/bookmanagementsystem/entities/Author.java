@@ -26,6 +26,13 @@ public class Author implements Serializable {
     private String Bibliography;
     private String Nationality;
 
+    public Author(Integer id, String name, String Bibliography, String Nationality) {
+        this.id = id;
+        this.name = name;
+        this.Bibliography = Bibliography;
+        this.Nationality = Nationality;
+    } // this constructor is created only due to unit testing
+
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
     @JsonManagedReference(value = "bookAuthor") // indicates that the annotated property (book) should be included in the JSON output during serialization.
     private List<Book> books = new ArrayList<>() ;

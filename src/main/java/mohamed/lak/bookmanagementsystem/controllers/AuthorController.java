@@ -20,8 +20,8 @@ public class AuthorController {
     }
 
     @PostMapping("/addAuthor")
-    public void addAuthor(@Valid @RequestBody Author author) {
-        authorService.addAuthor(author);
+    public Author addAuthor(@Valid @RequestBody Author author) {
+        return authorService.addAuthor(author);
     }
     @GetMapping("/authors")
     public List<Author> retrieveAuthors() {

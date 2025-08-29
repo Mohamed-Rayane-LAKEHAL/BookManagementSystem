@@ -36,6 +36,16 @@ public class Book implements Serializable {
     //@JsonIgnore
     private List<Users> profiles = new ArrayList<>();
 
+    public Book(Integer id,  String title, String ISBN, String gener, LocalDate pubYear, Author author) {
+        this.id = id;
+        this.title = title;
+        this.ISBN = ISBN;
+        this.gener = gener;
+        this.pubYear = pubYear;
+        this.author = author;
+    }
+
+
     @Override
     public String toString(){
         return "Book: "+ " Id: " + id + " title: "+ title + " ISBN: " + ISBN + " pubYear: " + pubYear;
