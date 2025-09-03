@@ -1,41 +1,44 @@
 package mohamed.lak.bookmanagementsystem.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mohamed.lak.bookmanagementsystem.security.user;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class userProfile {
+public class Users implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_user_profile;
-
+    @Column(name = "id_user")
+    private Integer id_user;
+    @Column(unique=true, nullable=false)
+    private String username;
+    @Column(nullable=false)
+    private String password;
     @Temporal(TemporalType.DATE)
     private LocalDate borrowedDate;
-
+    @Column(nullable=false)
+    private String Role;
     @ManyToMany()
     @JoinTable(name = "user_book",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
     private List<Book> borrowedBooks = new ArrayList<>();
 
-    @OneToOne
-    @MapsId
-    private user user;
-
-
+    @Override
+    public String toString(){
+        return "User: " + "Id: " + id_user + " Name: " + username ;
+    }
 }
